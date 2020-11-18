@@ -9,14 +9,7 @@
   [registrar addMethodCallDelegate:instance channel:channel];
 }
 
-- (void)enableNotifications {
-    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
-    
-    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-}
-
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-    [self enableNotifications];
     
   if ([@"updateBadgeCount" isEqualToString:call.method]) {
       NSDictionary *args = call.arguments;
